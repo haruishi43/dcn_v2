@@ -75,6 +75,7 @@ def check_zero_offset():
         print(input)
         print(output)
 
+
 def check_gradient_dconv():
 
     input = torch.rand(N, inC, inH, inW) * 0.01
@@ -106,10 +107,11 @@ def check_gradient_dconv():
             dcn_v2_conv,
             (
                 input, offset, mask, weight, bias,
-                stride, padding, dilation, deformable_groups),
-                eps=1e-3, atol=1e-4, rtol=1e-2
-            )
+                stride, padding, dilation, deformable_groups
+            ),
+            eps=1e-3, atol=1e-4, rtol=1e-2
         )
+    )
 
 
 def check_pooling_zero_offset():
